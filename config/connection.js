@@ -1,9 +1,9 @@
 const development = {
-  database: 'databasename',
-  username: 'username',
-  password: 'password',
+  database: 'push',
+  username: 'root',
+  password: '',
   host: 'localhost',
-  dialect: 'sqlite' || 'mysql' || 'postgres',
+  dialect: 'mysql',
 };
 
 const testing = {
