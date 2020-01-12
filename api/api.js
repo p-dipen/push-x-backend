@@ -7,7 +7,7 @@ const helmet = require('helmet');
 const http = require('http');
 const mapRoutes = require('express-routes-mapper');
 const cors = require('cors');
-
+require("dotenv").config();
 /**
  * server configuration
  */
@@ -54,7 +54,7 @@ server.listen(config.port, () => {
     environment !== 'development' &&
     environment !== 'testing'
   ) {
-    console.error(`NODE_ENV is set to ${environment}, but only production and development are valid.`);
+    console.error(`NODE_ENV is set to ${environment}, but only production and development are valid.${config.port}`);
     process.exit(1);
   }
   return DB;
