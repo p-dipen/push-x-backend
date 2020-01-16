@@ -5,14 +5,19 @@ admin.initializeApp({
 });
 const FirebaseController = () => {
     const sendNotification = async (req, res) => {
-        var registrationTokens = req.tokens;
-        var payload = req.payload;
-
-        admin.messaging().sendToDevice(registrationTokens, payload)
+        console.log(req)
+        // var registrationTokens = req.body.tokens;
+        // var notification = req.body.notification;
+        var message = {
+            token: req.body.token,
+            notification: req.body.notification
+        }
+        // admin.messaging().sendToDevice(registrationTokens, payload)
+        admin.messaging().send(message)
             .then((response) => {
                 console.log('Sent successfully.\n');
                 console.log(response);
-                res.status(statusCodes.Ok).json({
+                res.status(200).json({
                     success: true,
                     msg: response
                 });
